@@ -243,7 +243,7 @@ const observer = new IntersectionObserver((entries) => {
 }, observerOptions);
 
 const animatedElements = document.querySelectorAll(
-  ".product-item, .solutions-content, .about-image, .about-content, .news-card"
+  ".product-item, .solutions-content, .about-image, .about-content, .news-card, .animate-on-scroll"
 );
 animatedElements.forEach((el) => observer.observe(el));
 
@@ -571,8 +571,41 @@ if (backToTopCircle) {
   });
 }
 
+function initTypewriter() {
+  const text = "At EVAPSolar, we believe that the future of energy is not just about generation, but about integration. Our mission is to create a seamless ecosystem where clean energy powers every aspect of our lives, from our homes to our vehicles.";
+  const element = document.getElementById("typewriter-text");
+  
+  if (!element) return;
+  
+  let i = 0;
+  element.innerHTML = '<span class="typewriter-cursor"></span>';
+  const cursor = element.querySelector(".typewriter-cursor");
+  
+  function type() {
+    if (i < text.length) {
+      const char = document.createTextNode(text.charAt(i));
+      element.insertBefore(char, cursor);
+      i++;
+      setTimeout(type, 30);
+    }
+  }
+  
+  // Start typing when the element is in view
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        type();
+        observer.disconnect();
+      }
+    });
+  }, { threshold: 0.1 });
+  
+  observer.observe(element);
+}
+
 window.addEventListener("DOMContentLoaded", () => {
   initCarousel();
+  initTypewriter();
   startProductCarousel(); // Start product showcase auto-carousel
   document.body.style.opacity = "0";
   setTimeout(() => {
