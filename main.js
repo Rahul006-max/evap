@@ -572,7 +572,7 @@ if (backToTopCircle) {
 }
 
 function initTypewriter() {
-  const text = "At EVAPSolar, we believe that the future of energy is not just about generation, but about integration. Our mission is to create a seamless ecosystem where clean energy powers every aspect of our lives, from our homes to our vehicles.";
+  const text = "At Evap Energies, we believe that the future of energy is not just about generation, but about integration. Our mission is to create a seamless ecosystem where clean energy powers every aspect of our lives, from our homes to our vehicles.";
   const element = document.getElementById("typewriter-text");
   
   if (!element) return;
@@ -603,10 +603,120 @@ function initTypewriter() {
   observer.observe(element);
 }
 
+// Touch Swipe Support for Carousels
+function initTouchSwipe() {
+  const heroCarousel = document.querySelector('.hero-carousel');
+  const productsShowcase = document.querySelector('.products-showcase');
+  
+  let touchStartX = 0;
+  let touchEndX = 0;
+  const minSwipeDistance = 50;
+  
+  function handleSwipe(callback) {
+    const swipeDistance = touchEndX - touchStartX;
+    if (Math.abs(swipeDistance) > minSwipeDistance) {
+      if (swipeDistance > 0) {
+        callback('prev');
+      } else {
+        callback('next');
+      }
+    }
+  }
+  
+  // Hero Carousel swipe
+  if (heroCarousel) {
+    heroCarousel.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+      stopAutoSlide();
+    }, { passive: true });
+    
+    heroCarousel.addEventListener('touchend', (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      handleSwipe((direction) => {
+        if (direction === 'prev') prevSlide();
+        else nextSlide();
+      });
+      startAutoSlide();
+    }, { passive: true });
+  }
+  
+  // Products Showcase swipe
+  if (productsShowcase) {
+    productsShowcase.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+      stopProductCarousel();
+    }, { passive: true });
+    
+    productsShowcase.addEventListener('touchend', (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      handleSwipe((direction) => {
+        if (direction === 'prev') {
+          currentProductIndex = (currentProductIndex - 1 + productShowcaseData.length) % productShowcaseData.length;
+        } else {
+          currentProductIndex = (currentProductIndex + 1) % productShowcaseData.length;
+        }
+        updateProductShowcase(currentProductIndex);
+      });
+      startProductCarousel();
+    }, { passive: true });
+  }
+}
+
+// Ripple Effect for Buttons
+function initRippleEffect() {
+  document.querySelectorAll('.ripple').forEach(button => {
+    button.addEventListener('click', function(e) {
+      const rect = this.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      
+      const ripple = document.createElement('span');
+      ripple.classList.add('ripple-effect');
+      ripple.style.left = x + 'px';
+      ripple.style.top = y + 'px';
+      
+      this.appendChild(ripple);
+      
+      setTimeout(() => ripple.remove(), 600);
+    });
+  });
+}
+
+// Mobile Contact Bar visibility
+function initMobileContactBar() {
+  const contactBar = document.querySelector('.mobile-contact-bar');
+  
+  if (contactBar) {
+    let lastScrollY = window.scrollY;
+    
+    window.addEventListener('scroll', () => {
+      // Show contact bar after scrolling past hero
+      if (window.scrollY > 300) {
+        contactBar.classList.add('visible');
+      } else {
+        contactBar.classList.remove('visible');
+      }
+      
+      // Hide when scrolling down fast (user intent to read content)
+      if (window.scrollY > lastScrollY && window.scrollY > 500) {
+        contactBar.style.transform = 'translateY(100%)';
+      } else {
+        contactBar.style.transform = 'translateY(0)';
+      }
+      
+      lastScrollY = window.scrollY;
+    }, { passive: true });
+  }
+}
+
 window.addEventListener("DOMContentLoaded", () => {
   initCarousel();
   initTypewriter();
   startProductCarousel(); // Start product showcase auto-carousel
+  initTouchSwipe(); // Enable touch swipe for carousels
+  initRippleEffect(); // Enable ripple effects
+  initMobileContactBar(); // Initialize mobile contact bar
+  
   document.body.style.opacity = "0";
   setTimeout(() => {
     document.body.style.transition = "opacity 0.5s ease-in";
