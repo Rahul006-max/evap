@@ -79,16 +79,7 @@
     <section class="hero" id="home">
       <div class="hero-carousel">
         <div class="hero-slide active">
-          <div
-            class="hero-background"
-            style="
-              background-image: linear-gradient(
-                  rgba(0, 0, 0, 0.5),
-                  rgba(0, 0, 0, 0.5)
-                ),
-                url('https://images.pexels.com/photos/356036/pexels-photo-356036.jpeg?auto=compress&cs=tinysrgb&w=1920');
-            "
-          ></div>
+          <div class="hero-background" data-slide="1"></div>
           <div class="hero-content">
             <h1 class="hero-title">
               Clean Solar Energy for a
@@ -100,16 +91,7 @@
           </div>
         </div>
         <div class="hero-slide">
-          <div
-            class="hero-background"
-            style="
-              background-image: linear-gradient(
-                  rgba(0, 0, 0, 0.5),
-                  rgba(0, 0, 0, 0.5)
-                ),
-                url('https://images.pexels.com/photos/110844/pexels-photo-110844.jpeg?auto=compress&cs=tinysrgb&w=1920');
-            "
-          ></div>
+          <div class="hero-background" data-slide="2"></div>
           <div class="hero-content">
             <h1 class="hero-title">
               Empowering Mobility with
@@ -121,16 +103,7 @@
           </div>
         </div>
         <div class="hero-slide">
-          <div
-            class="hero-background"
-            style="
-              background-image: linear-gradient(
-                  rgba(0, 0, 0, 0.5),
-                  rgba(0, 0, 0, 0.5)
-                ),
-                url('https://images.pexels.com/photos/414837/pexels-photo-414837.jpeg?auto=compress&cs=tinysrgb&w=1920');
-            "
-          ></div>
+          <div class="hero-background" data-slide="3"></div>
           <div class="hero-content">
             <h1 class="hero-title">
               Driving
@@ -142,16 +115,7 @@
           </div>
         </div>
         <div class="hero-slide">
-          <div
-            class="hero-background"
-            style="
-              background-image: linear-gradient(
-                  rgba(0, 0, 0, 0.5),
-                  rgba(0, 0, 0, 0.5)
-                ),
-                url('https://images.pexels.com/photos/371900/pexels-photo-371900.jpeg?auto=compress&cs=tinysrgb&w=1920');
-            "
-          ></div>
+          <div class="hero-background" data-slide="4"></div>
           <div class="hero-content">
             <h1 class="hero-title">
               Advanced
@@ -163,16 +127,7 @@
           </div>
         </div>
         <div class="hero-slide">
-          <div
-            class="hero-background"
-            style="
-              background-image: linear-gradient(
-                  rgba(0, 0, 0, 0.5),
-                  rgba(0, 0, 0, 0.5)
-                ),
-                url('https://images.pexels.com/photos/433308/pexels-photo-433308.jpeg?auto=compress&cs=tinysrgb&w=1920');
-            "
-          ></div>
+          <div class="hero-background" data-slide="5"></div>
           <div class="hero-content">
             <h1 class="hero-title">
               Premium
@@ -223,14 +178,23 @@
         </div>
         
         <div class="products-showcase-image">
-          <img id="productShowcaseImg" 
-               src="https://images.pexels.com/photos/356036/pexels-photo-356036.jpeg?auto=compress&cs=tinysrgb&w=800" 
-               alt="Solar Module" />
+          <div class="product-placeholder" data-product="primary">
+            <svg width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+              <polyline points="9 22 9 12 15 12 15 22"></polyline>
+            </svg>
+            <p>Solar Modules</p>
+          </div>
         </div>
         
         <div class="products-showcase-secondary">
-          <img src="https://images.pexels.com/photos/433308/pexels-photo-433308.jpeg?auto=compress&cs=tinysrgb&w=800" 
-               alt="Energy Storage" />
+          <div class="product-placeholder" data-product="secondary">
+            <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5">
+              <rect x="1" y="3" width="15" height="13"></rect>
+              <path d="M16 8h2a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-2"></path>
+            </svg>
+            <p>Energy Storage</p>
+          </div>
         </div>
         
         <button class="back-to-top-circle" id="backToTopCircle">
@@ -246,7 +210,7 @@
 
     <!-- Industrial Strength Section -->
     <section class="page-preview industrial-preview">
-      <div class="preview-background" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.pexels.com/photos/532192/pexels-photo-532192.jpeg?auto=compress&cs=tinysrgb&w=1920');"></div>
+      <div class="preview-background" data-preview="industrial"></div>
       <div class="preview-content">
         <p class="preview-label">Industrial Strength</p>
         <h2 class="preview-title">Powering Industries<br>With Clean Energy</h2>
@@ -309,7 +273,7 @@
 
     <!-- Energy Storage Preview -->
     <section class="page-preview storage-preview">
-      <div class="preview-background" style="background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.pexels.com/photos/8853502/pexels-photo-8853502.jpeg?auto=compress&cs=tinysrgb&w=1920');"></div>
+      <div class="preview-background" data-preview="residential"></div>
       <div class="preview-content centered">
         <p class="preview-label">Energy Storage</p>
         <h2 class="preview-title">Advanced Battery Systems</h2>
@@ -373,7 +337,7 @@
 
     <!-- Research & Development Preview -->
     <section class="page-preview rd-preview">
-      <div class="preview-background" style="background-image: linear-gradient(rgba(0, 118, 190, 0.9), rgba(0, 90, 148, 0.9)), url('https://images.pexels.com/photos/2280547/pexels-photo-2280547.jpeg?auto=compress&cs=tinysrgb&w=1920');"></div>
+      <div class="preview-background" data-preview="business"></div>
       <div class="preview-content centered">
         <p class="preview-label">Research & Development</p>
         <h2 class="preview-title">Innovation in Solar Cell Technology</h2>
