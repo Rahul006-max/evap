@@ -269,7 +269,9 @@ section {
 .hero {
   position: relative;
   height: 100vh;
+  min-height: 100vh;
   overflow: hidden;
+  background: #1a4d7a !important;
 }
 
 .hero-carousel {
@@ -285,11 +287,13 @@ section {
   width: 100%;
   height: 100%;
   opacity: 0;
-  transition: opacity 1s ease-in-out;
+  visibility: hidden;
+  transition: opacity 1s ease-in-out, visibility 1s ease-in-out;
 }
 
 .hero-slide.active {
   opacity: 1;
+  visibility: visible;
 }
 
 .hero-background {
@@ -300,7 +304,7 @@ section {
   height: 100%;
   background-size: cover;
   background-position: center;
-  background-color: #0f3460;
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), #1a4d7a;
   background-repeat: no-repeat;
   animation: kenburns 20s ease-in-out infinite alternate;
   z-index: 1;
