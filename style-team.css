@@ -8,7 +8,7 @@
 .team-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: calc(var(--spacing-unit) * 4);
+  gap: calc(var(--spacing-unit) * 3);
   margin-bottom: calc(var(--spacing-unit) * 8);
 }
 
@@ -27,7 +27,7 @@
 
 .team-image {
   width: 100%;
-  height: 300px;
+  height: 280px;
   overflow: hidden;
 }
 
@@ -43,21 +43,23 @@
 }
 
 .team-info {
-  padding: calc(var(--spacing-unit) * 3);
+  padding: calc(var(--spacing-unit) * 2.5);
   text-align: center;
 }
 
 .team-name {
-  font-size: 1.25rem;
+  font-size: 1.15rem;
   font-weight: 600;
   color: var(--color-text-dark);
   margin-bottom: calc(var(--spacing-unit) * 0.5);
+  line-height: 1.3;
 }
 
 .team-role {
   color: var(--color-primary);
   font-weight: 500;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
+  line-height: 1.4;
 }
 
 /* CEO Quote Section */
@@ -150,23 +152,136 @@
 }
 
 @media (max-width: 768px) {
+  /* Team section mobile */
+  .team-section {
+    padding: calc(var(--spacing-unit) * 7) 0;
+  }
+
+  .team-grid {
+    gap: calc(var(--spacing-unit) * 2.5);
+    margin-bottom: calc(var(--spacing-unit) * 6);
+  }
+
+  .team-image {
+    height: 260px;
+  }
+
+  .team-info {
+    padding: calc(var(--spacing-unit) * 2);
+  }
+
+  .team-name {
+    font-size: 1.05rem;
+    line-height: 1.3;
+  }
+
+  .team-role {
+    font-size: 0.85rem;
+    line-height: 1.4;
+  }
+
+  /* CEO Quote section mobile */
   .ceo-quote-section {
     flex-direction: column;
     text-align: center;
-    padding: calc(var(--spacing-unit) * 4);
+    padding: calc(var(--spacing-unit) * 3.5);
+    gap: calc(var(--spacing-unit) * 3);
+    margin-top: calc(var(--spacing-unit) * 6);
+  }
+
+  .ceo-image-container {
+    width: 140px;
+    height: 140px;
   }
 
   .ceo-dialogue-box {
     border-top-left-radius: 16px;
-    border-top: none;
-    margin-top: calc(var(--spacing-unit) * 2);
+    padding: calc(var(--spacing-unit) * 3);
   }
 
   .ceo-dialogue-box::before {
     display: none;
   }
+
+  .typewriter-text {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    min-height: 60px;
+  }
   
   .ceo-signature {
     text-align: center;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Ultra compact mobile layout */
+  .team-section {
+    padding: calc(var(--spacing-unit) * 5) 0;
+  }
+
+  .team-grid {
+    gap: calc(var(--spacing-unit) * 2);
+    margin-bottom: calc(var(--spacing-unit) * 5);
+  }
+
+  .team-image {
+    height: 240px;
+  }
+
+  .team-info {
+    padding: calc(var(--spacing-unit) * 1.75);
+  }
+
+  .team-name {
+    font-size: 0.95rem;
+    line-height: 1.3;
+    margin-bottom: calc(var(--spacing-unit) * 0.5);
+  }
+
+  .team-role {
+    font-size: 0.8rem;
+    line-height: 1.5;
+  }
+
+  /* CEO Quote compact */
+  .ceo-quote-section {
+    padding: calc(var(--spacing-unit) * 2.5);
+    gap: calc(var(--spacing-unit) * 2.5);
+    margin-top: calc(var(--spacing-unit) * 5);
+    border-radius: 16px;
+  }
+
+  .ceo-image-container {
+    width: 120px;
+    height: 120px;
+    border-width: 3px;
+  }
+
+  .ceo-dialogue-box {
+    padding: calc(var(--spacing-unit) * 2.5);
+  }
+
+  .typewriter-text {
+    font-size: 0.85rem;
+    line-height: 1.7;
+    min-height: 50px;
+    margin-bottom: calc(var(--spacing-unit) * 1.5);
+  }
+
+  .quote-icon {
+    top: 15px;
+    right: 15px;
+  }
+
+  .quote-icon svg {
+    width: 32px;
+    height: 32px;
+  }
+
+  .ceo-signature {
+    font-size: 0.85rem;
+    margin-top: calc(var(--spacing-unit) * 1.5);
   }
 }

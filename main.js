@@ -687,21 +687,31 @@ function initMobileContactBar() {
   const contactBar = document.querySelector('.mobile-contact-bar');
   
   if (contactBar) {
+    // Show contact bar by default on mobile
+    if (window.innerWidth <= 768) {
+      contactBar.classList.add('visible');
+    }
+    
     let lastScrollY = window.scrollY;
     
     window.addEventListener('scroll', () => {
-      // Show contact bar after scrolling past hero
-      if (window.scrollY > 300) {
+      // Always show on mobile after any scroll
+      if (window.innerWidth <= 768) {
         contactBar.classList.add('visible');
+        
+        // Hide when scrolling down fast (user intent to read content)
+        if (window.scrollY > lastScrollY && window.scrollY > 500) {
+          contactBar.style.transform = 'translateY(100%)';
+        } else {
+          contactBar.style.transform = 'translateY(0)';
+        }
       } else {
-        contactBar.classList.remove('visible');
-      }
-      
-      // Hide when scrolling down fast (user intent to read content)
-      if (window.scrollY > lastScrollY && window.scrollY > 500) {
-        contactBar.style.transform = 'translateY(100%)';
-      } else {
-        contactBar.style.transform = 'translateY(0)';
+        // Desktop: show after scrolling past hero
+        if (window.scrollY > 300) {
+          contactBar.classList.add('visible');
+        } else {
+          contactBar.classList.remove('visible');
+        }
       }
       
       lastScrollY = window.scrollY;
