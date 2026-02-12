@@ -300,7 +300,10 @@ section {
   height: 100%;
   background-size: cover;
   background-position: center;
+  background-color: #0f3460;
+  background-repeat: no-repeat;
   animation: kenburns 20s ease-in-out infinite alternate;
+  z-index: 1;
 }
 
 @keyframes kenburns {
@@ -356,7 +359,7 @@ section {
   align-items: center;
   text-align: center;
   padding: 80px calc(var(--spacing-unit) * 3) 0;
-  z-index: 2;
+  z-index: 10;
 }
 
 .hero-title {
@@ -400,7 +403,7 @@ section {
   justify-content: center;
   align-items: center;
   gap: calc(var(--spacing-unit) * 3);
-  z-index: 3;
+  z-index: 15;
 }
 
 .carousel-btn {
@@ -459,7 +462,7 @@ section {
   bottom: calc(var(--spacing-unit) * 3);
   left: 50%;
   transform: translateX(-50%);
-  z-index: 3;
+  z-index: 15;
 }
 
 .scroll-arrow {
@@ -955,6 +958,8 @@ section {
   height: 100%;
   background-size: cover;
   background-position: center;
+  background-color: #0f3460;
+  background-repeat: no-repeat;
   z-index: 0;
 }
 
@@ -1356,6 +1361,8 @@ section {
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
+  background-color: #1a4d7a;
+  background-repeat: no-repeat;
   z-index: 1;
 }
 
