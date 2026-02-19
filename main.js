@@ -152,37 +152,32 @@ if (hamburger && navMenu) {
   hamburger.addEventListener("click", () => {
     hamburger.classList.toggle("active");
     navMenu.classList.toggle("active");
+    document.body.classList.toggle("menu-open"); // Toggle scroll lock
   });
 }
 
-// Handle dropdown functionality for mobile - support multiple dropdowns
+// Improved Mobile Dropdown Handling
 const dropdowns = document.querySelectorAll(".dropdown");
-const dropdownToggles = document.querySelectorAll(".dropdown-toggle");
-const dropdownMenus = document.querySelectorAll(".dropdown-menu");
 
-// Add click handler for dropdown toggle on mobile
-if (dropdownToggles.length > 0) {
-  dropdownToggles.forEach((toggle, index) => {
-    toggle.addEventListener("click", (e) => {
-      // Only prevent default and handle manually on mobile
-      if (window.innerWidth <= 768) {
-        e.preventDefault();
-        const menu = dropdownMenus[index];
-
-        if (menu) {
-          // Close other dropdowns
-          dropdownMenus.forEach((otherMenu, otherIndex) => {
-            if (otherIndex !== index && otherMenu) {
-              otherMenu.style.display = "none";
-            }
+if (dropdowns.length > 0) {
+  dropdowns.forEach((dropdown) => {
+    const toggle = dropdown.querySelector(".dropdown-toggle");
+    
+    if (toggle) {
+      toggle.addEventListener("click", (e) => {
+        if (window.innerWidth <= 768) {
+          e.preventDefault();
+          
+          // Close other open dropdowns
+          dropdowns.forEach(d => {
+            if (d !== dropdown) d.classList.remove("active");
           });
-
-          // Toggle current dropdown
-          menu.style.display =
-            menu.style.display === "block" ? "none" : "block";
+          
+          // Toggle current
+          dropdown.classList.toggle("active");
         }
-      }
-    });
+      });
+    }
   });
 }
 
@@ -190,13 +185,17 @@ if (dropdownToggles.length > 0) {
 if (navLinks.length > 0) {
   navLinks.forEach((link) => {
     link.addEventListener("click", () => {
+      // Don't close if it's a dropdown toggle on mobile
+      if (window.innerWidth <= 768 && link.classList.contains('dropdown-toggle')) {
+        return;
+      }
+      
       if (hamburger) hamburger.classList.remove("active");
       if (navMenu) navMenu.classList.remove("active");
+      document.body.classList.remove("menu-open");
 
       // Close all dropdowns
-      dropdownMenus.forEach((menu) => {
-        if (menu) menu.style.display = "none";
-      });
+      dropdowns.forEach((d) => d.classList.remove("active"));
     });
   });
 }
