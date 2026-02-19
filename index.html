@@ -8,13 +8,10 @@
       name="description"
       content="Evap Energies - Clean solar energy and EV charging solutions for a sustainable future"
     />
-    <title>Evap Energies - Green Energy Solutions</title>
+    <title>EVAP Solar - Modular Off-Grid Solar EV Charging</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./style.css" />
     <link rel="stylesheet" href="./style-team.css" />
   </head>
@@ -22,51 +19,32 @@
     <nav class="navbar" id="navbar">
       <div class="nav-container">
         <div class="nav-logo">
-          <a href="#home">
-            <img src="/evap-logo.png" alt="EVAPSolar" class="logo-image" />
+          <a href="#home" class="logo-link">
+            <!-- Ideally replace with SVG or image if available, using text for now or existing img if compatible -->
+            <img src="/evap-logo.png" alt="EVAP Solar" class="logo-image" />
           </a>
         </div>
         <div class="nav-menu" id="navMenu">
           <a href="#home" class="nav-link active">Home</a>
-          <div class="dropdown">
-            <a href="#products" class="nav-link dropdown-toggle">Products</a>
-            <div class="dropdown-menu">
-              <a href="modules.html" class="dropdown-item">Modules</a>
-              <a href="energy-storage.html" class="dropdown-item"
-                >Energy Storage</a
-              >
-              <a href="charging-stations.html" class="dropdown-item"
-                >Charging Stations</a
-              >
-            </div>
-          </div>
-          <div class="dropdown">
-            <a href="#services" class="nav-link dropdown-toggle">Services</a>
-            <div class="dropdown-menu">
-              <a href="utility.html" class="dropdown-item">Utility</a>
-              <a href="industrial.html" class="dropdown-item">Industrial</a>
-              <a href="residential.html" class="dropdown-item">Residential</a>
-              <a href="business-model.html" class="dropdown-item"
-                >Business Model</a
-              >
-            </div>
-          </div>
-          <div class="dropdown">
-            <a href="#about" class="nav-link dropdown-toggle"
-              >Research and Development</a
-            >
-            <div class="dropdown-menu">
-              <a href="solar-cells.html" class="dropdown-item">Solar Cells</a>
-            </div>
-          </div>
+          
           <div class="dropdown">
             <a href="#about" class="nav-link dropdown-toggle">About Us</a>
             <div class="dropdown-menu">
-              <a href="company-info.html" class="dropdown-item">Company Info</a>
-              <a href="team.html" class="dropdown-item">Our Team</a>
-              <a href="contact.html" class="dropdown-item">Contact</a>
+              <a href="company-info.html" class="dropdown-item">Our Story & Team</a>
+              <a href="company-info.html#mission" class="dropdown-item">Mission & Vision</a>
             </div>
           </div>
+
+          <div class="dropdown">
+            <a href="#products" class="nav-link dropdown-toggle">Products</a>
+            <div class="dropdown-menu">
+              <a href="charging-stations.html" class="dropdown-item">EV Charging Systems</a>
+              <a href="energy-storage.html" class="dropdown-item">Solar-Plus-Storage</a>
+            </div>
+          </div>
+
+          <a href="#innovation" class="nav-link">Innovation Pipeline</a>
+          <a href="contact.html" class="nav-link btn-cta-nav">Contact</a>
         </div>
         <div class="hamburger" id="hamburger">
           <span></span>
@@ -76,72 +54,91 @@
       </div>
     </nav>
 
-    <section class="hero" id="home">
-      <div class="hero-carousel">
-        <div class="hero-slide active">
-          <div class="hero-background" data-slide="1"></div>
-          <div class="hero-content">
-            <h1 class="hero-title">
-              Clean Solar Energy for a
-              <span class="text-highlight">Greener Future</span>
-            </h1>
-            <p class="hero-subtitle">
-              Powering tomorrow with sustainable innovation today
-            </p>
-          </div>
-        </div>
-        <div class="hero-slide">
-          <div class="hero-background" data-slide="2"></div>
-          <div class="hero-content">
-            <h1 class="hero-title">
-              Empowering Mobility with
-              <span class="text-highlight">EV Innovation</span>
-            </h1>
-            <p class="hero-subtitle">
-              Advanced charging infrastructure for electric vehicles
-            </p>
-          </div>
-        </div>
-        <div class="hero-slide">
-          <div class="hero-background" data-slide="3"></div>
-          <div class="hero-content">
-            <h1 class="hero-title">
-              Driving
-              <span class="text-highlight">Zero Carbon</span> Transformation
-            </h1>
-            <p class="hero-subtitle">
-              Building integrated sustainable energy ecosystems
-            </p>
-          </div>
-        </div>
-        <div class="hero-slide">
-          <div class="hero-background" data-slide="4"></div>
-          <div class="hero-content">
-            <h1 class="hero-title">
-              Advanced
-              <span class="text-highlight">Energy Storage</span> Solutions
-            </h1>
-            <p class="hero-subtitle">
-              Store solar energy for 24/7 power availability
-            </p>
-          </div>
-        </div>
-        <div class="hero-slide">
-          <div class="hero-background" data-slide="5"></div>
-          <div class="hero-content">
-            <h1 class="hero-title">
-              Premium
-              <span class="text-highlight">Solar Modules</span> Technology
-            </h1>
-            <p class="hero-subtitle">
-              High-efficiency photovoltaic solutions for every need
-            </p>
-          </div>
+    <header class="hero" id="home">
+      <div class="hero-background-static"></div>
+      <div class="hero-overlay"></div>
+      <div class="hero-content container">
+        <h1 class="hero-title animate-fade-up">
+          India's First Modular, <br>
+          <span class="text-primary">Off-Grid Solar EV Charging System</span>
+        </h1>
+        <p class="hero-subtitle animate-fade-up delay-100">
+          Grid-independent. Autonomous. Renewable-powered.
+        </p>
+        <div class="hero-cta-group animate-fade-up delay-200">
+          <a href="#products" class="btn btn-primary">Our Solutions</a>
+          <a href="#innovation" class="btn btn-outline-white">Innovation Pipeline</a>
         </div>
       </div>
+    </header>
 
-      <div class="carousel-controls">
-        <div class="carousel-indicators" id="indicators"></div>
+    <!-- Stats Bar -->
+    <section class="stats-bar">
+      <div class="container stats-grid">
+        <div class="stat-item">
+          <span class="stat-value">India's First</span>
+          <span class="stat-label">Modular Off-Grid EV Charger</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-value">200MW+</span>
+          <span class="stat-label">Manufacturing Capacity</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-value">6 Mo &rarr; 6 Wk</span>
+          <span class="stat-label">Process Optimization</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-value">NISE Incubated</span>
+          <span class="stat-label">Recognized Innovation</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Roadmap Section -->
+    <section class="roadmap-section section-padding">
+      <div class="container">
+        <div class="section-header text-center">
+          <h2 class="section-title">Our Roadmap to 2030</h2>
+          <p class="section-subtitle">Transitioning from System Integration to Next-Gen Manufacturing</p>
+        </div>
+        <div class="roadmap-grid">
+          <!-- Phase 1 -->
+          <div class="roadmap-card card">
+            <div class="card-header-accent phase-now">NOW</div>
+            <div class="card-body">
+              <h3>System Integration</h3>
+              <ul class="feature-list">
+                <li>Modular Solar EV Charging Stations</li>
+                <li>Smart Grid Integration</li>
+                <li>Pilot Deployments in Karnataka</li>
+              </ul>
+            </div>
+          </div>
+          <!-- Phase 2 -->
+          <div class="roadmap-card card">
+            <div class="card-header-accent phase-next">2026+</div>
+            <div class="card-body">
+              <h3>Advanced Manufacturing</h3>
+              <ul class="feature-list">
+                <li>Perovskite Solar Cell Production</li>
+                <li>High-Efficiency Modules</li>
+                <li>Expanded Market Reach</li>
+              </ul>
+            </div>
+          </div>
+          <!-- Phase 3 -->
+          <div class="roadmap-card card">
+            <div class="card-header-accent phase-future">2028+</div>
+            <div class="card-body">
+              <h3>Next-Gen Storage</h3>
+              <ul class="feature-list">
+                <li>Zinc-Based BESS Integration</li>
+                <li>Sustainable Battery Technology</li>
+                <li>Global Export Capabilities</li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
